@@ -5,25 +5,25 @@ import { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 
 const Menu = [
-  { id: 1, name: "EDUCATION & TRAINING", link: "/EDUCATION" },
+  { id: 1, name: "EDUCATION & TRAINING", link: "/education" },
   {
     id: 2,
     name: "AGRICULTURE, FORESTRY & LIVESTOCK (PRODUCTION)",
-    link: "/AGRICULTURE",
+    link: "/agriculture",
   },
   {
     id: 3,
     name: "CONSTRUCTION & TECHNICAL INFRASTRUCTURE",
-    link: "/CONSTRUCTION",
+    link: "/construction",
   },
-  { id: 4, name: "CONSULTANCY & TECHNICAL ARCHITECTURE", link: "/CONSULTANCY" },
+  { id: 4, name: "CONSULTANCY & TECHNICAL ARCHITECTURE", link: "/consultancy" },
   {
     id: 5,
     name: "INFORMATION TECHNOLOGY & POWER GENERATION",
-    link: "/INFORMATION_TECHNOLOGY",
+    link: "/information-technology",
   },
-  { id: 6, name: "TRADE & WHOLESALE", link: "/TRADE" },
-  { id: 7, name: "REAL ESTATE & OTHER SERVICES", link: "/REAL_ESTATE" },
+  { id: 6, name: "TRADE & WHOLESALE", link: "/trade" },
+  { id: 7, name: "REAL ESTATE & OTHER SERVICES", link: "/real-estate" },
 ];
 export default function Navbar() {
   const [open, setOpen] = useState(false);
