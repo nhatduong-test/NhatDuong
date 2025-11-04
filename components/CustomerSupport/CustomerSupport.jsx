@@ -34,7 +34,6 @@ export default function CustomerSupport() {
               <span className="font-semibold text-teal-700">dedicated contact channels</span> for
               each customer group to ensure long-term system stability.
             </p>
-
             <div className="pt-2">
               <a
                 href="/contact"
