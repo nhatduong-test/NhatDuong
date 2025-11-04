@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 
-// Soft tint palette aligned with previous sections
+// Palette nhạt (tint) đồng bộ các phần trước
 const TINTS = {
   blue: "rgba(14, 90, 107, 0.08)",
   teal: "rgba(3, 151, 164, 0.10)",
@@ -23,16 +23,16 @@ export default function CustomerSupport() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT: text */}
           <div data-aos="fade-right" className="space-y-6">
-            <p className="text-teal-700/80 font-semibold">Customer Support</p>
+            <p className="text-teal-700/80 font-semibold">Hỗ trợ khách hàng</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-              Assist & accompany <br className="hidden md:block" /> our customers
+              Giải đáp & đồng hành <br className="hidden md:block" /> cùng khách hàng
             </h2>
             <p className="text-slate-700 text-lg leading-relaxed">
-              After the project goes live, Nhat Duong Group continues to{" "}
-              <span className="font-semibold text-teal-700">support based on a roadmap</span>,
-              upgrade based on practical needs, and provide{" "}
-              <span className="font-semibold text-teal-700">dedicated contact channels</span> for
-              each customer group to ensure long-term system stability.
+              Sau khi dự án đi vào vận hành, Nhat Duong Group tiếp tục{" "}
+              <span className="font-semibold text-teal-700">hỗ trợ theo lộ trình</span>, nâng cấp
+              theo nhu cầu thực tế và cung cấp{" "}
+              <span className="font-semibold text-teal-700">kênh liên hệ nhanh</span> cho từng nhóm
+              khách hàng để hệ thống hoạt động bền vững.
             </p>
 
             <div className="pt-2">
@@ -41,7 +41,7 @@ export default function CustomerSupport() {
                 className="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-6 py-3 font-semibold shadow-md hover:brightness-110 transition"
               >
                 <MessageCircle className="w-5 h-5" />
-                Contact us
+                Liên hệ
               </a>
             </div>
           </div>
@@ -75,14 +75,14 @@ export default function CustomerSupport() {
               />
               <div className="min-w-0">
                 <p className="font-semibold text-slate-900 truncate">Mr.An</p>
-                <p className="text-slate-600 text-sm truncate">Hello! How can I help you?</p>
+                <p className="text-slate-600 text-sm truncate">Chào bạn! Bạn cần hỗ trợ gì?</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* subtle glow in corners */}
+      {/* glow nhẹ hai góc */}
       <span className="pointer-events-none absolute -top-10 -left-10 w-40 h-40 rounded-full bg-white/40 blur-2xl" />
       <span className="pointer-events-none absolute -bottom-12 -right-12 w-48 h-48 rounded-full bg-white/40 blur-3xl" />
     </section>
