@@ -85,7 +85,6 @@ Legal & Compliance	Privacy Policy, Terms of Use, Licensing	Provides essential co
 Displays copyright notice at the bottom:
 
 mathematica
-Copy code
 © 2025 CÔNG TY CỔ PHẦN TẬP ĐOÀN NHẬT DƯƠNG — All Rights Reserved
 Separated with a subtle white border line (border-white/10).
 
@@ -101,7 +100,6 @@ To change accent color, edit class text-blue-500 globally in the component.
 Replace contact info directly in JSX for live company details:
 
 jsx
-Copy code
 <a href="mailto:info@nhatduonggroup.com">info@nhatduonggroup.com</a>
 Update address as needed in the <MapPin> section.
 

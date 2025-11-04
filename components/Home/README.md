@@ -44,7 +44,7 @@ AboutShowcase/
 └── README.md # This documentation
 
 yaml
-Copy code
+
 
 ---
 
@@ -56,7 +56,7 @@ npm install aos next react
 Also initialize AOS globally (in layout.jsx or page.jsx):
 
 jsx
-Copy code
+
 "use client";
 import { useEffect } from "react";
 import AOS from "aos";

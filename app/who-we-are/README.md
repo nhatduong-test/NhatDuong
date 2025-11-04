@@ -48,7 +48,7 @@ WhoWeAre/
 └── README.md # This documentation
 
 yaml
-Copy code
+
 
 ---
 
@@ -60,7 +60,7 @@ npm install aos next react lucide-react
 Then initialize AOS in your project as follows:
 
 jsx
-Copy code
+
 "use client";
 import { useEffect } from "react";
 import AOS from "aos";
@@ -79,12 +79,10 @@ useEffect(() => {
 The WhoWeAre page can be placed directly under your Next.js app directory (for routing):
 
 bash
-Copy code
 /app/who-we-are/page.jsx
 Or imported as part of a layout:
 
 jsx
-Copy code
 import WhoWeAre from "@/app/who-we-are/page";
 
 export default function AboutPage() {
