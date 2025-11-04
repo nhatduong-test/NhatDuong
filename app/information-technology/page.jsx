@@ -83,13 +83,13 @@ export default function InformationTechnologyPage() {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#2f2f2f] text-white">
-        <div className="pointer-events-none absolute right-[-10%] top-1/4 h-72 w-72 rounded-full bg-linear-to-tr from-orange-500/30 to-yellow-400/20 blur-3xl" />
+        <div className="pointer-events-none absolute right-[-10%] top-1/4 h-72 w-72 rounded-full bg-linear-to-tr from-green-500/30 to-yellow-400/20 blur-3xl" />
         
         <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
           <div className="text-center" data-aos="fade-up">
             <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">
               Information Technology &
-              <span className="ml-2 bg-linear-to-b from-yellow-500 to-orange-500 bg-clip-text text-transparent">
+              <span className="ml-2 bg-linear-to-b from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                 Power Generation
               </span>
             </h1>
@@ -120,7 +120,7 @@ export default function InformationTechnologyPage() {
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <div className="text-orange-500 mb-4">
+                <div className="text-green-500 mb-4">
                   {service.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">
@@ -132,7 +132,7 @@ export default function InformationTechnologyPage() {
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="text-orange-500 mr-2">✓</span>
+                      <span className="text-green-500 mr-2">✓</span>
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
@@ -157,11 +157,11 @@ export default function InformationTechnologyPage() {
             {technologies.map((tech, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-xl p-6 text-center hover:bg-linear-to-br hover:from-orange-500 hover:to-yellow-500 hover:text-white transition-all duration-300 group"
+                className="bg-gray-50 rounded-xl p-6 text-center hover:bg-linear-to-br hover:from-blue-500 hover:to-cyan-500 hover:text-white transition-all duration-300 group"
                 data-aos="zoom-in"
                 data-aos-delay={index * 50}
               >
-                <div className="text-orange-500 group-hover:text-white mb-3 flex justify-center">
+                <div className="text-green-500 group-hover:text-white mb-3 flex justify-center">
                   {tech.icon}
                 </div>
                 <p className="text-sm font-semibold text-gray-800 group-hover:text-white">
@@ -188,7 +188,7 @@ export default function InformationTechnologyPage() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 shrink-0">
+                  <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 shrink-0">
                     ✓
                   </div>
                   <div>
@@ -197,7 +197,7 @@ export default function InformationTechnologyPage() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 shrink-0">
+                  <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 shrink-0">
                     ✓
                   </div>
                   <div>
@@ -206,7 +206,7 @@ export default function InformationTechnologyPage() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 shrink-0">
+                  <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 shrink-0">
                     ✓
                   </div>
                   <div>
@@ -218,7 +218,7 @@ export default function InformationTechnologyPage() {
             </div>
 
             <div data-aos="fade-left">
-              <div className="bg-linear-to-br from-orange-500 to-yellow-500 rounded-2xl p-8 text-white">
+              <div className="bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-6">IT Infrastructure Excellence</h3>
                 <div className="space-y-4">
                   <div className="bg-white/10 backdrop-blur rounded-lg p-4">
@@ -247,7 +247,7 @@ export default function InformationTechnologyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-linear-to-r from-orange-500 to-yellow-500">
+      <section className="py-16 bg-linear-to-r from-blue-500 to-cyan-500">
         <div className="max-w-4xl mx-auto px-4 text-center" data-aos="zoom-in">
           <h2 className="text-3xl font-bold text-white mb-4">
             Transform Your Business with Technology
@@ -255,7 +255,7 @@ export default function InformationTechnologyPage() {
           <p className="text-white/90 mb-8 text-lg">
             Partner with us to harness the power of IT and sustainable energy for your organization
           </p>
-          <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transition">
+          <button className="bg-white text-green-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transition">
             Get Started Today
           </button>
         </div>

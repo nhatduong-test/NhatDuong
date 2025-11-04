@@ -104,7 +104,7 @@ export default function Navbar() {
   }, [openMega]);
 
   return (
-    <header className="bg-gradient-to-r from-[#52d8fa] to-[#1ba9f6] text-white shadow-md sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-[#46f1da] to-[#14c54f] text-white shadow-md sticky top-0 z-50">
       {/* CSS ẩn menu cũ (không chỉnh sửa markup cũ) và bật menu mới */}
       <style jsx global>{`
         /* Ẩn nav desktop cũ: nó có data-aos="fade-down" và data-aos-delay="200" trong markup gốc */
@@ -235,7 +235,7 @@ export default function Navbar() {
               {openMega && (
                 <div
                   id="ndg-whatwedo-panel"
-                  className="absolute right-0 mt-2 z-[60] w-[min(92vw,1000px)] rounded-2xl bg-white text-blue-700 shadow-2xl ring-1 ring-green-500 backdrop-blur p-3"
+                  className="absolute right-0 mt-2 z-[60] w-[min(92vw,1000px)] rounded-2xl bg-teal-300 text-blue-700 shadow-2xl ring-1 ring-green-500 backdrop-blur p-3"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2">
                     {WHAT_WE_DO.map((item) => (

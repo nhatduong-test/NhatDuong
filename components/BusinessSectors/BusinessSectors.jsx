@@ -109,7 +109,7 @@ const BusinessSectors = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-500 transition-colors">
+                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-500 transition-colors">
                   {sector.title}
                 </h3>
 
@@ -119,7 +119,7 @@ const BusinessSectors = () => {
                 </p>
 
                 {/* Arrow indicator */}
-                <div className="mt-4 flex items-center text-orange-500 font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
+                <div className="mt-4 flex items-center text-cyan-500 font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
                   Learn More
                   <svg
                     className="w-4 h-4 ml-1"
