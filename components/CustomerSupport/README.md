@@ -1,72 +1,147 @@
-# 🧩 Customer Support Section
+Customer Support Component
+Overview
 
-## Overview
-The **CustomerSupport** component is a responsive section designed to present the customer support commitment of **Nhat Duong Group**.  
-It uses the same color palette as the main theme (navy → teal → green → lime), providing a smooth and modern visual transition.
+A responsive section that presents Nhat Duong Group’s post-deployment customer support: headline, description, CTA button, showcase image, and a floating chat bubble overlay.
 
-This section highlights post-project assistance, upgrade pathways, and dedicated communication channels for clients.
+Location
+/components/CustomerSupport/CustomerSupport.jsx
+assets: /public/Customer/customer.png, /public/Customer/agent.png
 
----
+Usage
+import CustomerSupport from "@/components/CustomerSupport/CustomerSupport";
 
-## ✨ Features
-- **Modern Layout:** Two-column design — text on the left, image and chat bubble overlay on the right.
-- **Soft Gradient Background:** Uses tinted colors consistent with the brand palette for a gentle, professional tone.
-- **Animated Elements:** Integrated with [AOS](https://michalsnik.github.io/aos/) for scroll-based fade-in effects.
-- **Responsive:** Fully adapts across mobile, tablet, and desktop.
-- **Accessible Call-to-Action:** A primary “Liên hệ” button linking to `/contact`.
-
----
-
-## 🎨 Palette
-The section applies a **tinted** version of the site’s main colors:
-
-| Tone | Hex / RGBA |
-|------|-------------|
-| Blue | `rgba(14, 90, 107, 0.08)` |
-| Teal | `rgba(3, 151, 164, 0.10)` |
-| Green | `rgba(82, 191, 139, 0.10)` |
-| Lime | `rgba(168, 219, 111, 0.10)` |
-
-These tones are intentionally desaturated to maintain readability and harmony with darker sections like *Hero* and *Who We Are*.
-
----
-
-## 🧱 Structure
-CustomerSupport/
-├── index.jsx # Main component
-├── customer.png # Main illustration (right column)
-├── agent.png # Chat bubble avatar
-└── README.md # This documentation
-
-
----
-
-## ⚙️ Dependencies
-Make sure these packages are already installed in your project:
-
-```bash
-npm install aos lucide-react
-The AOS initialization is handled globally in the homepage or layout component.
-
-🚀 Usage
-Import and add the section to your page layout:
-
-jsx
-
-import CustomerSupport from "@/components/CustomerSupport";
-
-export default function HomePage() {
-  return (
-    <>
-      {/* Other sections */}
-      <CustomerSupport />
-    </>
-  );
+export default function Page() {
+  return <CustomerSupport />;
 }
-💡 Notes
-Replace /Customer/customer.png and /Customer/agent.png with your own images (recommended resolution: 1200×800 and 128×128).
 
-You can adjust the color intensity by modifying the alpha value (0.08 → 0.15) in the TINTS object.
+Features
 
-If you want to match the darker sections (e.g., Process or Hero), change gradient stops to use solid colors from PALETTE.
+Clear value proposition (support & lifecycle assistance)
 
+Primary CTA linking to Contact page
+
+Large illustrative image with rounded container
+
+Floating chat bubble (agent avatar + greeting)
+
+Soft gradient background tints, subtle glow accents
+
+AOS-ready animations (fade-right / fade-left)
+
+Component Structure
+<section id="support">            // gradient-tint background
+  <div className="max-w-7xl">
+    <div className="grid lg:grid-cols-2">
+      {/* Left: copy + CTA */}
+      {/* Right: image + floating chat bubble */}
+    </div>
+  </div>
+  {/* Corner glow spans */}
+</section>
+
+Dependencies
+
+Next.js (App Router friendly)
+
+next/image for optimized images
+
+lucide-react (MessageCircle icon)
+
+(Optional) AOS for scroll animations (data-aos attributes present)
+
+Styling
+Palette (Tints)
+Key	RGBA	Usage
+blue	rgba(14, 90, 107, 0.08)	Background gradient start
+teal	rgba(3, 151, 164, 0.10)	Background mix
+green	rgba(82, 191, 139, 0.10)	Background mix
+lime	rgba(168, 219, 111, 0.10)	Background end
+Key Classes & Effects
+Element	Classes / Notes
+Section BG	linear-gradient(120deg, blue→teal→green→lime)
+Headline	text-4xl md:text-5xl font-extrabold text-slate-900
+CTA Button	rounded-full bg-slate-900 text-white px-6 py-3 hover:brightness-110
+Image wrapper	rounded-[28px]/[36px] ring-1 shadow-xl bg-white overflow-hidden
+Chat bubble	absolute ... bg-white/95 backdrop-blur-sm rounded-2xl ring-1 shadow-2xl
+Glow accents	absolute rounded-full bg-white/40 blur-2xl/3xl
+Layout & Breakpoints
+Viewport	Grid	Overlay Placement
+Mobile (base)	grid-cols-1	Chat centered bottom (left-1/2)
+Desktop (lg)	lg:grid-cols-2	Chat pinned right (md:right-6)
+Customization
+Common Tweaks
+Need	How
+Change CTA link/text	Edit <a href="/contact"> and inner text
+Swap images	Replace /public/Customer/customer.png and /public/Customer/agent.png
+Adjust chat bubble copy	Update the two <p> elements in the overlay
+Tune background tint intensity	Modify RGBA alpha values in TINTS
+Disable animations	Remove data-aos attributes
+Optional Props (if you want to generalize)
+type CustomerSupportProps = {
+  title?: string;
+  subtitle?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+  heroSrc?: string;
+  agentName?: string;
+  agentAvatarSrc?: string;
+  agentGreeting?: string;
+};
+
+Accessibility
+
+Semantic structure with clear headings and link/button semantics
+
+Sufficient color contrast on CTA and text
+
+Image alt text provided (hero + agent)
+
+Keyboard navigable; floating chat is decorative content with readable text
+
+Performance
+
+next/image optimized loading (priority on hero)
+
+Pure CSS gradients and glows (no heavy runtime)
+
+Minimal client JS (icon only; AOS optional)
+
+Browser Support
+
+Chrome/Edge, Firefox, Safari (latest 2 versions)
+
+iOS/Android modern browsers
+
+Integration
+
+Place near the end of a landing page or contact-oriented sections
+
+Pairs well after Process / AboutShowcase / BusinessSectors
+
+Ensure AOS is initialized globally if you keep the animation attributes
+
+Developer Notes
+AOS Hooks
+Element	data-aos
+Left copy	fade-right
+Right image	fade-left
+// Example global init (client)
+import AOS from "aos";
+import "aos/dist/aos.css";
+useEffect(() => { AOS.init({ once: true }); }, []);
+
+Asset Dimensions (Recommended)
+Asset	Suggested Size
+customer.png	~1200×800 (landscape)
+agent.png	96×96 (square avatar)
+Version History
+
+v1.0 (Nov 4, 2025) — Initial release with gradient tint BG, hero image, floating chat overlay, CTA, AOS hooks.
+
+Developer
+
+TeamLead Dang Van Tan
+
+Status
+
+✅ Completed

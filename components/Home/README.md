@@ -1,95 +1,185 @@
-# 🏢 AboutShowcase Section – Nhat Duong Group Website
+AboutShowcase Component
+Overview
+AboutShowcase is a responsive highlight section that presents Nhat Duong Group’s multi-sector story using a center hero image flanked by four gradient-framed content cards. It supports light/dark themes and AOS reveal animations.
+Location
+/components/AboutShowcase/AboutShowcase.jsx
+assets: /public/about/img.png
 
-## 📖 Overview
-The **AboutShowcase** component is a feature-rich section that visually highlights the **scope and diversity** of Nhat Duong Group’s core business areas.  
-It combines a central image with four animated information cards to present the Group’s strategic strengths — from education to sustainability.
+Usage
+import AboutShowcase from "@/components/AboutShowcase/AboutShowcase";
 
-This section is designed to stand out as a modern, storytelling block that visually connects **vision, innovation, and growth**.
-
----
-
-## ✨ Key Features
-- **Balanced 3-Column Layout:**  
-  Two animated text columns flank a central image, symbolizing Nhat Duong Group’s multidimensional ecosystem.
-- **Color-Gradient Frames:**  
-  Each card features a subtle linear gradient frame derived from the official brand palette.
-- **AOS Animations:**  
-  Smooth entrance effects (`fade-left`, `fade-right`, `zoom-in`) to emphasize storytelling flow.
-- **Dark/Light Mode Compatible:**  
-  Uses `dark:bg-slate-950` and transparent overlay gradients for theme adaptability.
-- **High-Resolution Centerpiece Image:**  
-  Rounded container with layered shadows and gradient overlays adds visual depth.
-
----
-
-## 🎨 Color Palette
-Derived from the brand’s teal–green color system:
-
-| Name | Hex | Usage |
-|------|------|--------|
-| Navy | `#0B0A2A` | Deep background accent |
-| Teal Dark | `#0E5A6B` | Titles / left column |
-| Teal | `#0397A4` | Highlights and links |
-| Green | `#52BF8B` | Right column gradients |
-| Lime | `#A8DB6F` | Accent for sustainability |
-
-Gradients are rendered as soft transparency layers (`33` / `26` alpha hex) for subtle separation without visual clutter.
-
----
-
-## 🧱 Structure
-AboutShowcase/
-├── index.jsx # Main component
-├── img.png # Showcase image (center)
-└── README.md # This documentation
-
-yaml
-
-
----
-
-## ⚙️ Dependencies
-Ensure the following packages are installed:
-
-```bash
-npm install aos next react
-Also initialize AOS globally (in layout.jsx or page.jsx):
-
-jsx
-
-"use client";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-export default function RootLayout({ children }) {
-  useEffect(() => {
-    AOS.init({ duration: 700, once: true });
-  }, []);
-  return <>{children}</>;
+export default function Page() {
+  return <AboutShowcase />;
 }
-🚀 Usage
-Import and include the section within your homepage or “About” page:
 
-jsx
-Copy code
-import AboutShowcase from "@/components/AboutShowcase";
+Features
 
-export default function HomePage() {
-  return (
-    <>
-      {/* Other sections */}
-      <AboutShowcase />
-    </>
-  );
-}
-🪄 Notes
-Replace /about/img.png with your own image (recommended resolution: 680×900px, ratio 3:4).
 
-Adjust gradient opacity or color balance through the PALETTE object.
+3-column layout on desktop (text • hero image • text), single column on mobile
 
-Works best when placed after the Hero section to provide visual storytelling continuity.
 
-Compatible with TailwindCSS Dark Mode and supports smooth scrolling animations via AOS.
+Four content cards with subtle gradient borders and ring outlines
 
-Author: Frontend Team – Nhat Duong Group Website Project
+
+Central rounded hero image with soft overlay and shadow
+
+
+Light/Dark mode ready (Tailwind dark: classes)
+
+
+Optional AOS animations: fade-right, fade-left, zoom-in
+
+
+Sectors Configuration
+Narrative touches these sectors:
+
+
+Education & Training
+
+
+Information Technology & Power Generation
+
+
+Construction & Technical Infrastructure
+
+
+Consultancy & Technical Architecture
+
+
+Trade & Wholesale
+
+
+Real Estate & Other Services
+
+
+Component Structure
+<section id="about-showcase">
+  <div className="max-w-7xl">
+    <div className="grid lg:grid-cols-3">
+      {/* Left: 2 cards (Education & Technology, Infrastructure & Architecture) */}
+      {/* Center: Hero image (/about/img.png) with rounded corners & overlay */}
+      {/* Right: 2 cards (Portfolio Diversity, Vision & Sustainability) */}
+    </div>
+  </div>
+</section>
+
+Dependencies
+
+
+Next.js Image (next/image) for optimized media
+
+
+TailwindCSS for styling
+
+
+(Optional) AOS for scroll animations (initialize globally if used)
+
+
+Styling
+
+
+Palette (inline constants):
+
+
+Navy #0B0A2A, Teal Dark #0E5A6B, Teal #0397A4, Green #52BF8B, Lime #A8DB6F
+
+
+
+
+Cards: gradient border via p-px + inner rounded card with ring and light/dark backgrounds
+
+
+Hero: rounded-[48px|64px], shadow-2xl, ring, gradient veil overlay
+
+
+Layout: grid grid-cols-1 lg:grid-cols-3, generous gap-10, py-20 md:py-28
+
+
+Customization
+
+
+Copy/Text: Edit the four <h3> and <p> blocks to match your messaging.
+
+
+Image: Replace /public/about/img.png with your asset; keep aspect ratio aspect-[3/4] or adjust.
+
+
+Colors: Update PALETTE to reflect brand palette; gradients derive from these values.
+
+
+AOS: Change data-aos attributes or remove if not using AOS.
+
+
+Radius/Depth: Tweak rounded-[..], shadow-*, and ring-* utilities.
+
+
+Accessibility
+
+
+Semantic headings with clear hierarchy
+
+
+Adequate color contrast (verify if palette changes)
+
+
+Images have descriptive alt text
+
+
+Animations are decorative; content is readable without AOS
+
+
+Performance
+
+
+Single hero image optimized by next/image (priority set for above-the-fold)
+
+
+Pure CSS effects (rings, gradients, shadows), no heavy JS
+
+
+No client state beyond render (stateless)
+
+
+Browser Support
+
+
+Latest Chrome/Edge, Firefox, Safari
+
+
+iOS/Android modern browsers
+
+
+Graceful fallback if AOS not loaded (content remains visible)
+
+
+Integration
+
+
+Place on About or Home page as a narrative highlight block
+
+
+Works inside any layout; ensure Tailwind and (optionally) AOS are set up globally
+
+
+Developer Notes
+
+
+Component uses "use client" because some teams standardize client components; it contains no state and can be moved server-side if desired.
+
+
+Keep /public/about/img.png sized appropriately (e.g., 1200×1600) for crisp rendering.
+
+
+If you change aspect-[3/4], revisit breakpoints to maintain balance.
+
+
+Version History
+
+
+v1.0 (Nov 4, 2025) — Initial creation with 4 cards, center hero, light/dark styling, AOS hooks.
+
+
+Developer
+TeamLead Dang Van Tan
+Status
+✅ Completed

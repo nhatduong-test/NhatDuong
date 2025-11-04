@@ -1,91 +1,181 @@
-# 🌍 Hero Section – Nhat Duong Group Website
+Hero Component
+Overview
+A responsive, animated hero section featuring a gradient background, headline + subheadline, two CTAs, and a hero illustration. Designed to introduce Nhat Duong Group and direct users to key flows.
+Location
+/components/Hero/Hero.jsx
+assets: /public/hero/hero.png
 
-## 📖 Overview
-The **Hero** component serves as the opening banner of the Nhat Duong Group website.  
-It introduces the organization’s multidisciplinary vision and core sectors through a strong headline, engaging gradient design, and responsive call-to-action buttons.
+Usage
+import Hero from "@/components/Hero/Hero";
 
-This section establishes the project’s tone and brand identity — emphasizing professionalism, sustainability, and innovation.
+export default function Page() {
+  return <Hero />;
+}
 
----
-
-## ✨ Features
-- **Dynamic Gradient Background:** Deep navy–to–teal linear gradient inspired by the official color palette.  
-- **Animated Elements:** AOS-based fade and zoom effects for smooth entry transitions.  
-- **Responsive Layout:** Optimized for both desktop and mobile screens with flexible grid.  
-- **CTAs (Call to Action):**
-  - “**Explore Our Businesses**” → navigates to `/homePage`
-  - “**Talk to Us**” → navigates to `/contact`
-- **Highlight Text Gradient:** Key phrase rendered with gradient typography using Tailwind’s `bg-clip-text`.  
-- **Soft Light Orbs:** Subtle blurred glow layers (`bg-cyan-400/10`, `bg-green-300/10`) to create depth.
-
----
-
-## 🎨 Color Palette
-This section uses darker tones derived from the main brand theme for contrast and emphasis:
-
-| Color | Hex Code | Purpose |
-|--------|-----------|----------|
-| Deep Navy | `#031B34` | Base background |
-| Ocean Blue | `#053B5E` | Mid transition tone |
-| Teal Deep | `#0E5A6B` | Dominant blend |
-| Cyan–Lime Accent | `#A8DB6F` | Highlight / text gradient |
-
-The gradient direction:  
-`linear-gradient(135deg, #031B34 → #053B5E → #0E5A6B)`
-
----
-
-## 🧱 File Structure
-Hero/
-├── index.jsx # Main Hero component
-├── hero.png # Main hero illustration (in /public/hero/)
-└── README.md # This documentation
-
-yaml
+Features
 
 
----
+Gradient background with soft glow orbs
 
-## ⚙️ Dependencies
-Install these packages if not already included:
 
-```bash
-npm install aos next react lucide-react
-And initialize AOS globally (in layout.jsx or app/page.jsx):
+Prominent headline with brand gradient text
 
-jsx
-"use client";
-import { useEffect } from "react";
+
+Subheading highlighting core sectors
+
+
+Two primary CTAs (Explore / Talk to Us)
+
+
+Optimized image via next/image
+
+
+AOS-ready reveal animations (fade/zoom)
+
+
+Fully responsive 1→2 column layout
+
+
+Sectors Configuration
+This component references sectors textually (no data map required):
+
+
+Education
+
+
+Construction
+
+
+Technology
+
+
+Agriculture
+
+
+
+If you need dynamic sectors, move the highlighted list to a prop.
+
+Component Structure
+<section /* gradient background + soft glow */>
+  <div className="max-w-7xl">
+    <div className="grid md:grid-cols-2">
+      {/* Left: Headline, description, CTAs */}
+      {/* Right: Illustration image (/hero/hero.png) */}
+    </div>
+  </div>
+</section>
+
+Dependencies
+
+
+Next.js (App Router friendly)
+
+
+next/image for optimized image loading
+
+
+TailwindCSS for styling
+
+
+(Optional) AOS for animations (data-aos attributes present)
+
+
+NPM (if needed)
+npm i aos
+
+Styling
+Color & Effects (Table)
+ElementValue / ClassesSection bglinear-gradient(135deg, #031B34 → #053B5E → #0E5A6B)Glow orbsbg-cyan-400/10, bg-green-300/10, blur-3xl, absoluteHeadline accentbg-gradient-to-r from-cyan-300 via-teal-200 to-lime-200 bg-clip-text text-transparentCTAsPrimary: from-cyan-500 to-green-400; Secondary: border border-white/40Image shadowdrop-shadow-[0_10px_25px_rgba(0,0,0,0.7)]
+Layout & Breakpoints (Table)
+ViewportGridSpacingMobile (base)grid-cols-1 (image first)px-4 py-16Tablet+md:grid-cols-2md:py-24, image second
+Customization
+Props (suggested)
+You can convert static text to props if needed:
+type HeroProps = {
+  title?: string;
+  highlight?: string;
+  subtitle?: string;
+  primaryHref?: string;
+  secondaryHref?: string;
+  imageSrc?: string;
+};
+
+Common Customizations (Table)
+NeedHowChange CTA texts/linksEdit <Link href="..."><button>…</button></Link>Swap illustration imageReplace /public/hero/hero.png and update altTweak gradient paletteEdit the inline background on <section>Disable animationsRemove data-aos attributesReorder on mobileSwap order-1/order-2 utility classes
+Accessibility
+
+
+Semantic heading structure (h1 primary)
+
+
+Buttons are real <button> inside navigational <Link> (keyboard accessible)
+
+
+Descriptive alt text on hero image
+
+
+Color contrast: passes with current palette (re-validate if colors change)
+
+
+Animations are non-blocking; content visible without AOS
+
+
+Performance
+
+
+next/image with priority for above-the-fold performance
+
+
+Pure CSS gradients and shadows (no heavy JS)
+
+
+Small, self-contained component (no client state apart from render)
+
+
+Browser Support
+
+
+Chrome/Edge, Firefox, Safari (latest 2 versions)
+
+
+iOS/Android modern browsers
+
+
+Graceful degradation if AOS is not present
+
+
+Integration
+
+
+Place at the top of the Homepage or Who We Are landing
+
+
+Works with any layout container that provides Tailwind and (optionally) AOS
+
+
+Pair with adjacent sections (BusinessSectors, Process, AboutShowcase)
+
+
+Developer Notes
+Buttons & Links (Table)
+ButtonHrefPurposeExplore Businesses/homePageNavigate to sector overviewTalk to Us/contactLead to contact form/page
+AOS Attributes (Table)
+Elementdata-aosExtraText blockfade-updata-aos-delay=150CTA rowfade-updata-aos-delay=300Image wrapperzoom-indata-aos-duration=400
+
+Ensure AOS is initialized globally if used:
+
+// e.g., in layout or a client provider
 import AOS from "aos";
 import "aos/dist/aos.css";
+useEffect(() => { AOS.init({ once: true }); }, []);
 
-export default function RootLayout({ children }) {
-  useEffect(() => {
-    AOS.init({ duration: 700, once: true });
-  }, []);
-  return <>{children}</>;
-}
-🚀 Usage
-Import and include the Hero section at the top of your homepage:
+Version History
 
-jsx
 
-import Hero from "@/components/Hero";
+v1.0 (Nov 4, 2025) — Initial hero with gradient, glow, two CTAs, responsive grid, AOS hooks.
 
-export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      {/* Other sections below */}
-    </>
-  );
-}
-🪄 Notes
-Replace /hero/hero.png with a custom illustration that reflects your project theme.
-Recommended ratio: 4:3, resolution around 1200×900px.
 
-Adjust gradient or shadow depth if the section appears too dark or too light.
-
-Ensure consistent typography and spacing with Tailwind’s utility classes.
-
-Author: Frontend Team – Nhat Duong Group Website Project
+Developer
+TeamLead Dang Van Tan
+Status
+✅ Completed

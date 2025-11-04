@@ -1,102 +1,230 @@
-# ⚙️ Process Section – Nhat Duong Group Website
+Process Component
+Overview
+A hero-style section that showcases Nhat Duong Group’s project implementation workflow with a left preview image and a right checklist of 4 key phases. The background uses a multi-stop gradient derived from the brand palette and a subtle overlay to ensure high text contrast.
 
-## 📖 Overview
-The **Process** component highlights the **project implementation workflow** of Nhat Duong Group.  
-It visually communicates the Group’s commitment to **professionalism, transparency, and innovation** through a structured 2-column layout combining imagery and animated checklists.
-
-The section emphasizes **how projects are developed and executed** across multiple industries — from planning and design to training and long-term sustainability.
-
----
-
-## ✨ Key Features
-- **Full-Width Gradient Background:**  
-  Smooth horizontal gradient from deep teal to lime green that symbolizes growth, technology, and progress.
-- **Dark Overlay for Clarity:**  
-  Semi-transparent black layer improves text contrast for readability.
-- **AOS Animations:**  
-  `fade-left`, `fade-right`, and scroll-triggered highlights for dynamic storytelling.
-- **Checklist with Glowing Icons:**  
-  Animated `CheckCircle` icons enhanced with blur and color glow effects for emphasis.
-- **Responsive Layout:**  
-  Two-column grid (image left, text right) that automatically stacks on mobile.
-- **Visual Depth:**  
-  Blurred orbs and drop shadows create a layered 3D-like feel consistent with Nhat Duong’s design language.
-
----
-
-## 🎨 Color Palette
-All tones are derived from Nhat Duong Group’s corporate identity — symbolizing trust, sustainability, and innovation.
-
-| Color | Hex Code | Purpose |
-|--------|-----------|----------|
-| Blue Dark | `#0E5A6B` | Foundation / base background |
-| Teal | `#0397A4` | Accent for headings and icons |
-| Green | `#52BF8B` | Symbol of growth and progress |
-| Lime | `#A8DB6F` | Final highlight tone for optimism |
-
-Gradient direction:  
-`linear-gradient(90deg, #0E5A6B → #0397A4 → #52BF8B → #A8DB6F)`
-
----
-
-## 🧱 Structure
-Process/
-├── index.jsx # Main Process component
-├── main.png # Workflow illustration image
-└── README.md # This documentation
-
-yaml
+Location
+/components/Process/Process.tsx  (or .jsx)
+Assets: /public/process/main.png
 
 
----
+Usage
+import Process from "@/components/Process/Process";
 
-## ⚙️ Dependencies
-Install required dependencies:
-
-```bash
-npm install aos lucide-react next react
-And ensure AOS (Animate On Scroll) is initialized in your project:
-
-jsx
-"use client";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-export default function RootLayout({ children }) {
-  useEffect(() => {
-    AOS.init({ duration: 700, once: true });
-  }, []);
-  return <>{children}</>;
-}
-🚀 Usage
-Import and use this section wherever you need to describe the workflow or methodology:
-
-jsx
-import Process from "@/components/Process";
-
-export default function HomePage() {
+export default function Page() {
   return (
     <>
-      {/* Other sections */}
+      {/* ...other sections */}
       <Process />
     </>
   );
 }
-🖼️ Image Recommendation
-Replace /process/main.png with your custom image representing workflow, teamwork, or innovation.
 
-Suggested ratio: 4:3 or 16:10, resolution around 1200×800 px for sharpness on large screens.
 
-Ensure it has bright tones for good contrast against the dark gradient background.
+Features
 
-🪄 Notes
-The blurred glowing circles (bg-white/50, bg-white/40) enhance the visual depth — adjust opacity if the image looks too bright.
 
-Each checklist item supports hover transitions with glowing feedback.
+Two-column layout (image ⇄ content) with responsive grid.
 
-Text readability is enhanced by layered drop shadows (drop-shadow-md, drop-shadow-lg).
 
-Works seamlessly in both light and dark modes.
+Brand gradient background with blurred overlay for readability.
 
-Author: Frontend Team – Nhat Duong Group Website Project
+
+Four checklist items using lucide-react CheckCircle.
+
+
+Optional AOS reveal hooks via data-aos attributes.
+
+
+Accessible image with next/image optimization.
+
+
+
+Sectors Configuration
+This component is sector-agnostic. The copy references the Group’s cross-sector workflow (market analysis → planning → execution → training) and can be adapted to any vertical.
+
+Component Structure
+<section id="process" /* gradient bg + dark overlay */>
+  <div className="max-w-7xl grid lg:grid-cols-2">
+    {/* Left: Image */}
+    <Image src="/process/main.png" ... />
+
+    {/* Right: Text & Checklist */}
+    <p>Our Development Process</p>
+    <h2>Professional Project Implementation...</h2>
+    <p>Intro paragraph...</p>
+
+    <ul>
+      {/* Four <li> with CheckCircle icon + label + description */}
+    </ul>
+  </div>
+</section>
+
+
+Dependencies
+
+
+Next.js Image: next/image for responsive, optimized media
+
+
+Icons: lucide-react (CheckCircle)
+
+
+(Optional) AOS: if you want scroll animations (data-aos="fade-left/right")
+
+
+Install if missing:
+npm i lucide-react
+# AOS (optional)
+npm i aos
+
+
+Styling
+
+
+Palette
+const PALETTE = {
+  blueDark: "#0E5A6B",
+  teal:      "#0397A4",
+  green:     "#52BF8B",
+  lime:      "#A8DB6F",
+};
+
+
+
+Background
+linear-gradient(90deg, blueDark 0%, teal 30%, green 65%, lime 100%)
+
+
+Overlay
+absolute inset-0 bg-black/20 backdrop-blur-sm to boost contrast
+
+
+Layout
+grid grid-cols-1 lg:grid-cols-2 with gap-12, generous py-20 md:py-28
+
+
+Image card
+Rounded container rounded-[36px], shadow-2xl, ring-2 ring-white/50
+
+
+Checklist
+Icon glow (blur-md pulse background), readable text-white/95
+
+
+
+Customization
+
+
+Change image
+Replace /public/process/main.png with your image (keep ~1200×900+).
+
+
+Edit steps
+Modify the four <li> blocks to add/remove steps or change copy.
+
+
+Icons
+Swap CheckCircle for another lucide-react icon (e.g., BadgeCheck).
+
+
+Colors
+Update PALETTE values or the gradient stops for different themes.
+
+
+AOS
+If using AOS, initialize once (e.g., in layout.tsx or a top-level client component):
+import AOS from "aos";
+import "aos/dist/aos.css";
+useEffect(() => { AOS.init({ duration: 700, once: true }); }, []);
+
+
+
+
+Accessibility
+
+
+Descriptive alt on the image.
+
+
+Sufficient color contrast ensured by dark overlay.
+
+
+Semantic list structure for the steps.
+
+
+Icons are decorative; ensure the text conveys the meaning.
+
+
+
+Performance
+
+
+next/image provides responsive, lazy-loaded, optimized images.
+
+
+Pure CSS gradient/blur; no heavy runtime logic.
+
+
+Optional AOS adds a small CSS/JS payload—omit if not needed.
+
+
+
+Browser Support
+
+
+Modern evergreen browsers (Chrome, Edge, Firefox, Safari)
+
+
+Mobile Safari/Chrome
+
+
+Graceful degradation if AOS is not loaded (content still visible)
+
+
+
+Integration
+Use on:
+
+
+Landing / “About” / “Who We Are” pages
+
+
+Any sector page that needs to describe methodology/process
+
+
+Pairs well with:
+
+
+Business Sectors grid
+
+
+KPIs/Stats section
+
+
+CTA (“Contact / Get in touch”)
+
+
+
+Developer Notes
+
+
+This is a client component due to inline styles and optional AOS usage.
+
+
+Keep the gradient + overlay to guarantee readability over busy images.
+
+
+Avoid putting dynamic time-dependent values here (prevents hydration mismatch).
+
+
+
+Version History
+
+
+v1.0 (Nov 4, 2025): Initial release with 4 stages, gradient background, AOS hooks.
+
+Developer
+TeamLead-Dang Van Tan
+
+Status
+✅ Completed

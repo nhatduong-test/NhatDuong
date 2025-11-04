@@ -1,184 +1,197 @@
-Navbar (Nhat Duong Group) – README
+Navbar Component
+Overview
 
-Responsive navigation bar component for a Next.js + TailwindCSS project, featuring both desktop and mobile menus.
-It replaces the old navigation system without deleting existing markup — the old menus are hidden via CSS for backward compatibility.
+A responsive, non-breaking Navbar that adds a new 3-menu structure — Home, Who We Are, What We Do (with 7 sub-links) — without modifying the old markup.
+The old desktop/mobile menus are visually hidden via scoped global CSS; the new menus render alongside the existing header and remain merge-safe on main.
 
-🔹 Main Features
+Location
+/components/Navbar/Navbar.jsx
+(uses /public/logo.png and optional AOS attributes already present in the page)
 
-Top-level navigation items (shared between desktop & mobile):
+Usage
+import Navbar from "@/components/Navbar/Navbar";
 
-Home
-
-Who We Are
-
-What We Do → opens a mega menu containing 7 sections:
-
-Education & Training (/education)
-
-Agriculture, Forestry & Livestock (/agriculture)
-
-Construction & Technical Infrastructure (/construction)
-
-Consultancy & Technical Architecture (/consultancy)
-
-Information Technology & Power Generation (/information-technology)
-
-Trade & Wholesale (/trade)
-
-Real Estate & Other Services (/real-estate)
-
-Contact button (always visible on desktop, collapses on mobile)
-
-Mega Menu (Desktop)
-
-Two-column layout with icon, title, and short description.
-
-Icons from lucide-react (w-10 h-10 by default).
-
-Closes automatically when clicking outside.
-
-Mobile Menu (Responsive)
-
-Opens when pressing the hamburger ||| icon.
-
-Displays vertically: Home → Who We Are → What We Do (with expandable sub-items) → Contact.
-
-Old mobile menu is hidden using CSS sibling selectors.
-
-⚙️ State & Data
-
-open → controls mobile menu toggle.
-
-openMega → controls mega menu toggle.
-
-Menu → old static menu list (kept for safety).
-
-WHAT_WE_DO → main data array for 7 business categories (with title, link, description, and icon).
-
-📦 Dependencies
-
-next, react, tailwindcss
-
-lucide-react for icons
-
-react-icons (used for the FaUserCircle contact icon)
-
-Install missing packages:
-
-npm install lucide-react react-icons
-
-🧩 Usage
-
-Place the component file at:
-src/components/Navbar.tsx
-
-Import it in your main layout or pages:
-
-import Navbar from "@/components/Navbar";
-
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
   return (
-    <html>
-      <body>
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <>
+      <Navbar />
+      {children}
+    </>
   );
 }
 
+Usage Features
 
-Make sure all route pages exist:
+New desktop inline menu next to Contact (Home, Who We Are, What We Do).
 
-/homePage, /who-we-are, /education, /agriculture, /construction,
-/consultancy, /information-technology, /trade, /real-estate, /contact
+Mega dropdown for What We Do (7 sector links with icons + descriptions).
 
-🎨 Styling Notes
-Header
+Mobile: hamburger opens a vertical menu (Home, Who We Are, What We Do → 7 items, Contact).
 
-Background gradient: from-[#52d8fa] to-[#1ba9f6]
+No edits to old code: legacy menus remain in DOM but are CSS-hidden per breakpoint.
 
-Shadow and sticky positioning enabled.
+Click-outside to close the mega dropdown.
 
-Mega Menu
+Smooth transitions and Tailwind styling.
 
-Width: min(92vw, 1000px)
+Sectors Configuration
 
-Two columns on desktop, responsive collapse on mobile.
+Default sub-items for What We Do:
 
-Each section includes:
+Education & Training → /education
 
-Left icon (lucide-react)
+Agriculture, Forestry & Livestock → /agriculture
 
-Title (text-[16px])
+Construction & Technical Infrastructure → /construction
 
-Description (2-line clamp)
+Consultancy & Technical Architecture → /consultancy
 
-Mobile Menu
+Information Technology & Power → /information-technology
 
-Controlled by open state.
+Trade & Wholesale → /trade
 
-Smooth slide-down via transition of max-height.
+Real Estate & Other Services → /real-estate
 
-Rounded rectangular buttons with semi-transparent backgrounds.
+Component Structure
+<header>
+  {/* Top bar: logo, new desktop menu, contact, hamburger */}
+  <style jsx global>{/* CSS that hides legacy menus & enables new ones */}</style>
 
-🧠 Hiding Old Menus
+  {/* New Desktop Menu (inline) */}
+  <nav className="ndg-newmenu-desktop">
+    <Link href="/homePage">Home</Link>
+    <Link href="/who-we-are">Who We Are</Link>
+    <button id="ndg-whatwedo-btn">What We Do ▾</button>
+    {openMega && (
+      <div id="ndg-whatwedo-panel">{/* 7 items grid with icons */}</div>
+    )}
+  </nav>
 
-The new system uses CSS only to disable legacy menus.
+  {/* Contact button (desktop) */}
 
-Desktop
-@media (min-width: 768px) {
-  header nav[data-aos="fade-down"][data-aos-delay="200"] {
-    display: none !important;
-  }
-}
+  {/* Hamburger (mobile) */}
 
-Mobile
-@media (max-width: 767.98px) {
-  #ndg-mobile-new { display: block; }
-  #ndg-mobile-new nav { display: block; }
+  {/* New Mobile Menu (collapsible, vertical list) */}
+  <div id="ndg-mobile-new" className={open ? "max-h-[800px]" : "max-h-0"}>
+    <nav>
+      <Link href="/">Homepage</Link>
+      <Link href="/who-we-are">Who We Are</Link>
+      <details>
+        <summary>What We Do</summary>
+        {/* 7 sub-links */}
+      </details>
+      <Link href="/contact">Contact</Link>
+    </nav>
+  </div>
 
-  /* Hide old mobile menu */
-  #ndg-mobile-new ~ div.md\:hidden,
-  #ndg-mobile-new ~ div[class*="md:hidden"] {
-    display: none !important;
-  }
-}
+  {/* Legacy Menus (kept intact) – hidden via CSS */}
+</header>
 
+Dependencies
 
-In styled-jsx, escape colons in Tailwind classes: md:hidden → md\\:hidden.
+Next.js: next/link, next/image
 
-🔧 Quick Customization
-Purpose	Where to Edit
-Icon size	Change className="w-10 h-10" in WHAT_WE_DO
-Menu spacing	.ndg-newmenu-desktop { gap: 5rem; margin-right: .1rem; }
-Gradient color	Header bg-gradient-to-r class
-Mega menu width	w-[min(92vw,1000px)]
-✅ Accessibility
+React: useState, useEffect
 
-aria-expanded and aria-haspopup for interactive menu buttons.
+Icons:
 
-Closes mega menu automatically when clicking outside.
+lucide-react (GraduationCap, Leaf, Building2, DraftingCompass, Cpu, ShoppingBag, Building)
 
-Hamburger button includes aria-label="Toggle navigation".
+react-icons/fa (FaUserCircle)
 
-📁 Assets
+(Optional) aos if the page initializes AOS elsewhere
 
-Logo path: /public/logo.png
+Install (if needed):
 
-Additional brand images (if any) should also be placed in /public.
+npm i lucide-react react-icons
+# AOS (optional)
+npm i aos
 
-⚠️ Common Issues
-Problem	Likely Cause	Fix
-Old mobile menu still visible	CSS selectors not applied or missing id="ndg-mobile-new"	Add correct id and escape md:hidden
-New menu not expanding	open state not toggled or CSS transition missing	Check max-h logic and button click handler
-Icons missing	lucide-react not installed	Run npm i lucide-react
-🧱 Merge Strategy
+Styling
 
-The code adds new elements but never deletes old markup.
+TailwindCSS for layout/spacing/typography.
 
-CSS ensures old menu remains hidden.
+Scoped global CSS inside the component to:
 
-Safe to merge into main without breaking legacy layout.
+Hide legacy desktop nav: header nav[data-aos="fade-down"][data-aos-delay="200"] { display: none !important; } (≥ md)
 
-To rollback, simply remove or comment out the new CSS block.
+Hide legacy mobile nav blocks at < md while showing #ndg-mobile-new.
+
+Layout:
+
+Desktop inline menu uses ml-auto to sit near Contact.
+
+Mega dropdown: absolute right-0, responsive grid (sm:grid-cols-2).
+
+Icons: class w-10 h-10 (adjust as needed).
+
+Z-index: panel uses z-[60] to overlay content.
+
+Customization
+
+Add/Remove sector items: edit the WHAT_WE_DO array (title, link, icon, desc).
+
+Icons size: change classes on each icon, e.g., w-8 h-8 or w-12 h-12.
+
+Spacing next to Contact: tune .ndg-newmenu-desktop gap/margins in the global <style>.
+
+Routes: update href paths to match your app routing.
+
+Mobile behavior: adjust max-h transition height, or replace <details> with a custom accordion if preferred.
+
+Disable legacy menus entirely: remove the legacy markup later (once safe to do so).
+
+Accessibility
+
+Buttons/controls use aria-expanded and aria-haspopup on the What We Do trigger.
+
+Focusable items; keyboard navigation works across links.
+
+Icons are accompanied by text labels.
+
+Sufficient color contrast on menu and dropdown.
+
+Performance
+
+No heavy libs beyond icon packs.
+
+Dropdown and mobile panels are CSS-transitioned (no layout thrash).
+
+Next/Image for optimized logo; rest are lightweight SVG icons.
+
+Event listener to close mega menu on outside clicks is cleaned up on unmount.
+
+Browser Support
+
+Chrome / Edge (Chromium)
+
+Firefox
+
+Safari
+
+iOS & Android modern browsers
+
+Integration
+
+Typically placed in root layout or top-level pages to appear site-wide.
+
+Works with AOS if your page initializes it; the component doesn’t require AOS.
+
+Developer Notes
+
+Do not edit legacy nav markup to keep merges safe; rely on the provided CSS to hide it.
+
+If your app’s header structure changes, re-check the legacy-nav selectors in the global <style>.
+
+Ensure logo.png exists in /public.
+
+Version History
+
+v1.1 (Nov 4, 2025) — Mobile vertical menu finalized; safer legacy-mobile hiding; icon sizes unified.
+
+v1.0 (Nov 3, 2025) — 3-menu structure added; desktop mega dropdown; legacy menus preserved & hidden.
+Developer
+TeamLead Dang Van Tan
+Status
+
+✅ Production Ready · ✅ Merge-safe · ✅ Responsive · ✅ No Lint Errors

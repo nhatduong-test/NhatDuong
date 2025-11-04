@@ -1,111 +1,181 @@
-# 🧭 Footer Component – Nhat Duong Group Website
+🧩 Footer Component
+Overview
 
-## 📖 Overview
-The **Footer** component serves as the closing section of the Nhat Duong Group website, providing users with quick navigation, contact information, and legal resources.  
-It reinforces brand identity through consistent colors, structured layout, and a clean, minimal design suitable for corporate environments.
+The Footer component provides a global footer section for the Nhat Duong Group Website.
+It includes navigation links, contact details, and legal information while maintaining consistent brand styling and responsiveness.
 
-This footer is both **functional** and **brand-oriented**, ensuring accessibility, visual balance, and responsive behavior across devices.
+Location
+/components/Footer/Footer.jsx
 
----
+Usage
+import Footer from "@/components/Footer/Footer";
 
-## ✨ Key Features
-- **Responsive Grid Layout:**  
-  4-column structure (Logo, Quick Links, Contact, Legal) that adapts gracefully to smaller screens.
-- **Corporate Branding:**  
-  Consistent use of the dark theme (`bg-black`, `text-white`) and accent color `#3b82f6` (blue) for headers and highlights.
-- **Interactive Links:**  
-  Hover animations with underlines and color transitions for better user engagement.
-- **Lucide React Icons:**  
-  Modern, lightweight icons for email, phone, and address fields.
-- **Copyright Bar:**  
-  Displays official ownership notice and year — auto updatable manually.
+// In your page or layout component
+<Footer />;
 
----
+Features
+🎯 Core Functionality
 
-## 🎨 Color Palette
-| Role | Color | Description |
-|------|--------|-------------|
-| Background | `#000000` | Deep black for a clean, modern finish |
-| Text | `#FFFFFF` | High contrast for readability |
-| Accent | `#3b82f6` (`text-blue-500`) | Brand color for section titles |
-| Borders | `#374151` (`border-gray-700`) | Subtle separation lines |
-| Hover Gradient | `from-green-400 to-blue-500` | Dynamic hover effect for buttons |
+Displays company name and Support button linking to the Contact page.
 
----
+Divided into four columns:
 
-## 🧱 Structure
-Footer/
-├── index.jsx # Main Footer component
-├── logo.png # Company logo (used in top-left section)
-└── README.md # This documentation
+Logo & Company Description
 
-yaml
-Copy code
+Quick Links
 
----
+Contact Information
 
-## ⚙️ Dependencies
-Install required dependencies:
+Legal & Compliance
 
-```bash
-npm install lucide-react next react
-🚀 Usage
-Import and include the Footer component at the bottom of your page or layout:
+Includes copyright bar.
 
-jsx
-Copy code
-import Footer from "@/components/Footer";
+Responsive design (1 column → 4 columns).
 
-export default function HomePage() {
+Smooth hover and gradient transitions.
+
+🎨 Visual Design
+
+Background: Solid black (bg-black)
+
+Text: White and gray tones for contrast
+
+Highlight: Blue accent (text-blue-500) for titles
+
+Buttons: Gradient hover effect (from-green-400 to-blue-500)
+
+Layout:
+
+Grid: grid-cols-1 md:grid-cols-4
+
+Padding: pt-10 px-6
+
+Border separators between sections
+
+Sectors Configuration
+
+Not sector-specific — this component is shared globally across all pages.
+
+Section	Description	Example Links / Content
+Company Header	Brand name + Support button	“NHAT DUONG GROUP” + “Support”
+Quick Links	Navigation shortcuts	About Us, Businesses, Careers, News, Contact
+Contact	Communication info	Email, Phone, Address
+Legal	Policies & licensing	Privacy Policy, Terms of Use, Licensing
+Component Structure
+<footer className="bg-black text-white pt-10 px-6">
+  <div className="max-w-7xl mx-auto">
+    
+    {/* Header */}
+    <div className="flex justify-between items-center border-b">
+      <h2>NHAT DUONG GROUP</h2>
+      <Link href="/contact"><button>Support</button></Link>
+    </div>
+
+    {/* Main Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
+      {/* Column 1: Logo + Desc */}
+      {/* Column 2: Quick Links */}
+      {/* Column 3: Contact */}
+      {/* Column 4: Legal */}
+    </div>
+
+    {/* Footer Bottom */}
+    <div className="text-center border-t mt-10 py-4">
+      © 2025 Nhat Duong Group — All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+Dependencies
+Library	Purpose
+next/link	Client-side navigation
+lucide-react	Icons (Mail, Phone, MapPin)
+tailwindcss	Styling and responsive layout
+
+Install missing dependencies:
+
+npm install lucide-react
+
+Styling
+Element	Tailwind Classes
+Footer Background	bg-black text-white
+Accent Color	text-blue-500
+Borders	border-gray-700 and border-white/10
+Support Button	bg-white text-black hover:bg-gradient-to-r from-green-400 to-blue-500 hover:text-white
+Links	text-gray-400 hover:text-white hover:underline
+Grid Layout	grid-cols-1 md:grid-cols-4 gap-8
+Customization
+Area	How to Modify
+Logo	Replace /public/logo.png
+Email / Phone / Address	Update <li> elements in the “Contact” section
+Quick Links	Edit <Link> items (About, Careers, etc.)
+Support Button Label	Change text inside <button>
+Colors / Accent	Modify Tailwind classes (text-blue-500, gradients)
+Footer Copy	Edit copyright line
+Accessibility
+
+✅ Semantic <footer> structure
+✅ Descriptive link text for screen readers
+✅ Keyboard navigable links
+✅ High contrast text on dark background
+✅ Logical heading hierarchy (<h2>, <h3>)
+
+Performance
+
+Fully static component — no client hooks or dynamic rendering.
+
+Uses SVG icons (Lucide React) for lightweight performance.
+
+Compatible with Next.js static optimization.
+
+Minimal reflow/repaint due to Tailwind GPU-accelerated transitions.
+
+Browser Support
+
+✅ Chrome / Edge (Chromium)
+✅ Firefox
+✅ Safari
+✅ Opera
+✅ Mobile browsers (iOS & Android)
+
+Integration
+
+Commonly used in:
+
+app/layout.jsx — global layout wrapper
+
+app/homePage/page.jsx — landing page
+
+app/who-we-are/page.jsx — about page
+
+Any other section requiring a consistent footer
+
+Example:
+
+export default function Layout({ children }) {
   return (
     <>
-      {/* Other homepage sections */}
+      {children}
       <Footer />
     </>
   );
 }
-🧩 Sections Breakdown
-1. Header Row
-Displays company name "NHAT DUONG GROUP" with bold typography.
 
-Includes a “Support” button linking to the contact page.
+Developer Notes
 
-The button uses a hover gradient effect (from-green-400 to-blue-500).
+The footer uses a grid-based layout for flexibility.
 
-2. Main Content Grid
-Divided into 4 key columns:
+No client state — can be safely rendered in SSR mode.
 
-Column	Content	Description
-Logo & Description	Company logo + short mission statement	Reinforces brand identity
-Quick Links	Navigation shortcuts	Direct access to main pages like About, Businesses, Careers, etc.
-Contact	Email, phone, and office address	Uses Lucide icons (Mail, Phone, MapPin)
-Legal & Compliance	Privacy Policy, Terms of Use, Licensing	Provides essential corporate transparency
+Keep links synchronized with Navbar for SEO and UX consistency.
 
-3. Copyright
-Displays copyright notice at the bottom:
+Maintain uniform spacing with other site sections (max-w-7xl).
+Developer
+TeamLead Dang Van Tan
+Version History
+Version	Date	Changes
+1.0.0	Nov 2025	Initial version — responsive layout, TailwindCSS design, Lucide icons, and accessibility improvements.
+Status
 
-mathematica
-© 2025 CÔNG TY CỔ PHẦN TẬP ĐOÀN NHẬT DƯƠNG — All Rights Reserved
-Separated with a subtle white border line (border-white/10).
-
-📱 Responsive Behavior
-Screen Size	Layout
-≥1024px	4-column grid
-768–1023px	2-column stacked grid
-≤640px	Single-column vertical layout
-
-🪄 Customization Tips
-To change accent color, edit class text-blue-500 globally in the component.
-
-Replace contact info directly in JSX for live company details:
-
-jsx
-<a href="mailto:info@nhatduonggroup.com">info@nhatduonggroup.com</a>
-Update address as needed in the <MapPin> section.
-
-Use .rounded-2xl logo style for uniform visual consistency.
-
-🔗 Recommended Placement
-Place <Footer /> after all main sections (Hero, About, Process, Testimonials, CustomerSupport, etc.) to conclude the homepage.
-
-Author: Frontend Team – Nhat Duong Group Website Project
+✅ Production Ready
+✅ Completed
