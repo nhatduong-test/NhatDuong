@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import About from "@/components/Home/aboutShowcase";
 import CustomerSupport from "../../components/CustomerSupport/CustomerSupport";
 import Process from "@/components/Process/Process";
+import BusinessSectors from "@/components/BusinessSectors/BusinessSectors";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import Footer from "@/components/Footer";
 import AOS from "aos";
@@ -29,8 +30,9 @@ export default function HomePage() {
       <About/>
       <CustomerSupport/>
       <Process/>
+      <BusinessSectors />
       <Testimonials />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
