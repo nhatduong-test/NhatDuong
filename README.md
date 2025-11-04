@@ -17,7 +17,7 @@ Technologies used:
 Next.js
  (Frontend Framework)
 
-TailwindCSS
+TailwindCSS,CSS
  (Styling)
 
 React Icons
@@ -37,7 +37,7 @@ npm or pnpm
 
 Setup Steps
 # 1. Clone the project
-git clone https://github.com/DangVanTan1202/NhatDuong
+git clone https://github.com/nhatduong-test/NhatDuong
 
 # 2. Navigate to the project folder
 cd NhatDuong

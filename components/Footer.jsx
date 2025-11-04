@@ -1,4 +1,4 @@
-"use client";
+
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 
@@ -8,11 +8,11 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl">
         {/* Phần trên cùng với tiêu đề và nút hỗ trợ */}
         <div className="flex flex-col md:flex-row justify-between items-center pb-6 border-b border-gray-700">
-          <h2 className="text-4xl font-bold leading-tight text-center md:text-left text-orange-400">
+          <h2 className="text-4xl font-bold leading-tight text-center md:text-left text-blue-500">
             NHAT DUONG GROUP
           </h2>
-          <Link href="/support">
-            <button className="bg-white text-black px-6 py-3 rounded-full font-semibold mt-4 md:mt-0 hover:bg-gradient-to-r from-yellow-400 to-orange-500 hover:text-white transition">
+          <Link href="/contact">
+            <button className="bg-white text-black px-6 py-3 rounded-full font-semibold mt-4 md:mt-0 hover:bg-gradient-to-r from-green-400 to-blue-500 hover:text-white transition">
               Support
             </button>
           </Link>
@@ -35,7 +35,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-3 text-orange-400">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-3 text-blue-500">Quick Links</h3>
             <ul className="text-gray-400 space-y-2 text-sm">
               <li>
                 <Link
@@ -82,7 +82,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-bold mb-3 text-orange-400">Contact</h3>
+            <h3 className="text-lg font-bold mb-3 text-blue-500">Contact</h3>
             <ul className="text-gray-400 space-y-2 text-sm">
               <li className="flex items-center gap-2">
                 <Mail size={16} />{" "}
@@ -102,14 +102,14 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin size={16} /> KĐT Đại Phú Gia, Quy Nhơn, Bình Định
+                <MapPin size={16} /> KĐT Đại Phú Gia, Quy Nhơn, Gia Lai
               </li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-bold mb-3 text-orange-400">
+            <h3 className="text-lg font-bold mb-3 text-blue-500">
               Legal & Compliance
             </h3>
             <ul className="text-gray-400 space-y-2 text-sm">
