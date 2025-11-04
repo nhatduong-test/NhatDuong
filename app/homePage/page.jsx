@@ -2,6 +2,9 @@
 import React, { useEffect } from "react";
 import Hero from "@/components/Hero/Hero";
 import Navbar from "@/components/Navbar/Navbar";
+import About from "@/components/Home/aboutShowcase";
+import CustomerSupport from "../../components/CustomerSupport/CustomerSupport";
+import Process from "@/components/Process/Process";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import Footer from "@/components/Footer";
 import AOS from "aos";
@@ -23,6 +26,9 @@ export default function HomePage() {
     <div className="bg-light">
       <Navbar />
       <Hero />
+      <About/>
+      <CustomerSupport/>
+      <Process/>
       <Testimonials />
       <Footer/>
     </div>

@@ -9,13 +9,13 @@ The HomePage is the main landing page of the Nhat Duong Group website, displayed
 From this page, users can quickly navigate to each section using anchor links in the menu:
 
 Path	Description
-/EDUCATION	Introduction to the Education & Training field
-/AGRICULTURE	Agriculture, Forestry & Livestock section
-/CONSTRUCTION	Construction & Technical Infrastructure section
-/CONSULTANCY	Consultancy & Technical Architecture section
-/INFORMATION_TECHNOLOGY	Information Technology & Power Generation section
-/TRADE	Trade & Wholesale section
-/REAL_ESTATE	Real Estate & Other Services section
+/education	Introduction to the Education & Training field
+/agriculture	Agriculture, Forestry & Livestock section
+/construction	Construction & Technical Infrastructure section
+/consultancy	Consultancy & Technical Architecture section
+/information-technology	Information Technology & Power Generation section
+/trade	Trade & Wholesale section
+/real Estate	Real Estate & Other Services section
 ⚙️ Technologies Used
 
 Next.js 15 (App Router)
