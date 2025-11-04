@@ -34,7 +34,6 @@ export default function CustomerSupport() {
               <span className="font-semibold text-teal-700">kênh liên hệ nhanh</span> cho từng nhóm
               khách hàng để hệ thống hoạt động bền vững.
             </p>
-
             <div className="pt-2">
               <a
                 href="/contact"
