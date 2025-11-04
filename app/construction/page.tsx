@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
-export default function EducationTrainingPage() {
+export default function ConstructionInfrastructurePage() {
   return (
     <>
       <Navbar />
@@ -19,23 +19,23 @@ export default function EducationTrainingPage() {
         <div className="mx-auto max-w-6xl px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Education & Training
+              Construction & Technical Infrastructure
             </h1>
             <p className="mt-6 text-lg text-gray-100">
-              Nhat Duong Group phát triển hệ sinh thái giáo dục toàn diện – từ
-              giáo dục mầm non, tiểu học đến dạy nghề, kỹ năng sống và dịch vụ
-              hỗ trợ giáo dục.
+              Nhat Duong Group specializes in civil, industrial, and 
+              infrastructure construction, bringing modern engineering 
+              and sustainability into every project.
             </p>
             <button
               className="mt-8 bg-[#A7E163] text-[#0B063F] font-semibold px-6 py-3 rounded-xl shadow hover:bg-[#5FBF7F] transition"
             >
-              Khám phá chương trình
+              View Construction Projects
             </button>
           </div>
           <div className="relative h-64 md:h-96">
             <Image
-              src="/images_edu_ari_construction/edu-hero.jpg"
-              alt="Education & Training"
+              src="/images_edu_ari_construction/construction-hero.jpg.webp"
+              alt="Construction & Infrastructure"
               fill
               className="object-cover rounded-2xl shadow-lg"
             />
@@ -47,34 +47,29 @@ export default function EducationTrainingPage() {
       <section className="bg-[#F8FFF8] py-20">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-3xl font-bold text-[#0B063F] text-center">
-            Lĩnh vực đào tạo
+            Key Construction Areas
           </h2>
           <p className="text-center text-gray-600 mt-3">
-            Các mảng hoạt động trọng tâm của Nhat Duong trong lĩnh vực Giáo dục
-            & Đào tạo
+            Engineering excellence and technical infrastructure at the core of Nhat Duong’s operations.
           </p>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                name: "Giáo dục chính quy",
-                desc: "Mầm non (8512), tiểu học (8521) – nền tảng cho thế hệ tương lai.",
+                name: "Civil Construction",
+                desc: "Residential, public, and industrial buildings, including roads and irrigation systems.",
               },
               {
-                name: "Dạy nghề",
-                desc: "Đào tạo sơ cấp và trung cấp (8531, 8532) – gắn với nhu cầu thực tế.",
+                name: "Electrical Works",
+                desc: "Construction of power lines, transformer stations (≤35KV), and system installations.",
               },
               {
-                name: "Giáo dục chuyên biệt",
-                desc: "Thể thao, văn hóa, nghệ thuật (8551, 8552) – phát triển năng khiếu.",
+                name: "Mechanical & System Installations",
+                desc: "Water supply, drainage, HVAC, and other technical systems.",
               },
               {
-                name: "Giáo dục kỹ năng sống",
-                desc: "Đào tạo kỹ năng mềm, tư duy, sáng tạo cho học sinh và người lao động (8559).",
-              },
-              {
-                name: "Dịch vụ hỗ trợ giáo dục",
-                desc: "Cung cấp giải pháp, công nghệ và hạ tầng phục vụ ngành giáo dục (8560).",
+                name: "Construction Support & Finishing",
+                desc: "Site preparation, excavation, leveling, and project completion works.",
               },
             ].map((item, index) => (
               <div
@@ -101,14 +96,14 @@ export default function EducationTrainingPage() {
         }}
       >
         <h2 className="text-3xl font-bold mb-4">
-          Hợp tác cùng Nhat Duong Education
+          Building the Future with Nhat Duong
         </h2>
         <p className="text-gray-100 max-w-2xl mx-auto">
-          Chúng tôi đồng hành cùng các tổ chức giáo dục, doanh nghiệp và nhà đầu tư
-          trong các chương trình đào tạo, phát triển nhân lực và chuyển đổi số giáo dục.
+          Partner with us in engineering projects that transform communities, 
+          infrastructure, and sustainability in Vietnam.
         </p>
         <button className="mt-8 bg-[#A7E163] text-[#0B063F] px-6 py-3 rounded-xl font-semibold hover:bg-[#5FBF7F] transition">
-          Liên hệ ngay
+          Contact Our Engineering Team
         </button>
       </section>
 
